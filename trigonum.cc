@@ -99,3 +99,4 @@ bool Trigonum::intersects_other_triangles(BVH &bvh, HitRecord &hit_record, Ray r
 		}
 	return false;
 }
+

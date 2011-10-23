@@ -4,6 +4,8 @@
 #include "vector.h"
 #include "ray.h"
 #include "math.h"
+#include "hit_record.h"
+#include "trigonum.h"
 
 inline Vector loadVectorFromMemory(const int &address) {
 	float x, y, z;
@@ -33,6 +35,7 @@ public:
 		aspect_ratio = 1.f;
 	}
 	void make_ray(Ray& ray, float x, float y);
+	Ray hemi_sphere(HitRecord hit_record, Ray ray);
 };
 
 #endif

@@ -23,6 +23,8 @@ inline Vector normal(Trigonum triangle) {
 Color Shader::lambertian(BVH &bvh, HitRecord hit_record, Ray ray, PointLight point_light, Color ambient_light) {
 
 	float costheta, cosphi;
+	Color back(.561f, .729f, .988f);
+	if (hit_record.did_hit()) {
 	Ray ray_to_light_source;
 	Trigonum tri = hit_record.obj_id();
 	Vector hit_position = ray.get_origin().add((ray.get_direction().scmult(hit_record.min_t())));
@@ -47,7 +49,8 @@ Color Shader::lambertian(BVH &bvh, HitRecord hit_record, Ray ray, PointLight poi
 	}
 	light = light.times(tri.surface_color());
 	return light;
+	}else
+		return back;
+
 }
-
-
 
